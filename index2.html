@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+.hungrySetting{
+background-color: lightblue;
+width: 100px;
+height: 40px;
+cursor: pointer;
+
+}
+    </style>
+<div class="hungrySetting" onclick="changeHungryStatus()">Change hungry Status</div>
+<div id="hungryText">I`m Hungry</div>
+<script>
+let hungry = true;
+let hasFood = false;
+let timeToEat = 1400;
+let timeNow = 1200;
+
+function changeHungryStatus(){
+    hungry = !hungry;
+    changeHungryText()
+}
+function changeHungryText(){
+   if(hungry == true){
+   document.getElementById('hungryText').innerHTML = 'I`m Hungry'
+   if(hasFood && timeNow >= timeToEat){
+    eat();
+}
+else if(hasFood && timeNow < timeToEat){
+    notTime()
+}
+else{
+    starve();
+}
+}else{
+   document.getElementById('hungryText').innerHTML = 'I`m not Hungry'
+}   
+}
+function eat(){
+document.getElementById('hungryText').innerHTML += ' and now i`m eating'
+
+}
+function notTime(){
+document.getElementById('hungryText').innerHTML += 'it`s not time to eat'
+
+}
+function starve(){
+document.getElementById('hungryText').innerHTML += ' and no food i hungry :('
+}
+
+    </script>
+</html>
+</body>
+</html>
